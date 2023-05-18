@@ -5,8 +5,8 @@ async function run() {
     const placeholders = process.env.INPUT_PLACEHOLDERS;
     const files = process.env.INPUT_FILES;
 
-    const placeholderPairs = placeholders.split('\n');
-    const filePaths = files.split('\n');
+    const placeholderPairs = placeholders.split('\n').filter((placeholder) => placeholder.trim() !== '');
+    const filePaths = files.split('\n').filter((file) => file.trim() !== '');
 
     for (const filePath of filePaths) {
       console.log(`Replacing placeholders in ${filePath}`);
